@@ -40,8 +40,14 @@ module.exports = {
       },
       "returns": "automatic1111"
     },
-    async (memory) => {
-      memory.image = Buffer.from(memory.automatic1111.images[0], "base64")
+    {
+      "method": "buffer",
+      "params": {
+        "from": "base64",
+        "to": "buffer",
+        "data": "{{memory.automatic1111.images[0]}}"
+      },
+      "returns": "buf"
     },
     {
       "method": "fetch",
@@ -49,7 +55,7 @@ module.exports = {
         "url": "{{config.blog.url}}",
         "method": "post",
         "body": {
-          "image": "{{image}}",
+          "image": "{{buf}}",
           "text": "{{description}}"
         }
       },
