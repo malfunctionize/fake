@@ -45,7 +45,7 @@ module.exports = {
       "params": {
         "from": "base64",
         "to": "buffer",
-        "data": "{{memory.automatic1111.images[0]}}"
+        "data": "{{automatic1111.images[0]}}"
       },
       "returns": "buf"
     },
